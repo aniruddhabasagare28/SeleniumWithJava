@@ -64,9 +64,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
+                    <!-- Let surefire pick testng.xml from test classpath (src/test/resources) -->
+                    <!-- Remove explicit suiteXmlFiles so resources/testng.xml is used automatically -->
+                    <useSystemClassLoader>false</useSystemClassLoader>
                     <systemPropertyVariables>
                         <browser>${browser}</browser>
                     </systemPropertyVariables>
